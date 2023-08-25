@@ -36,7 +36,48 @@
     grid-area: image;
   }
   
-  .track_play__author {
+  .skeleton_icon {
+    grid-area: image;
+    width: 51px;
+    height: 51px;
+    margin-right: 12px;
+    background-color:#313131;
+    animation: blink 1s infinite alternate;
+  }
+
+  .skeleton_author,
+  .skeleton_album {
+    width: 59px;
+    height: 15px;
+    background-color: #313131;
+    animation: blink 1s infinite alternate;
+  }
+  
+  .skeleton_author {
+    grid-row: 1;
+    grid-column: 2;
+    grid-area: author;
+    min-width: 49px;
+  }
+  
+  .skeleton_album {
+    grid-row: 1;
+    grid-column: 2;
+    grid-area: album;
+    min-width: 49px;
+  }
+  
+  @keyframes blink {
+    from {
+      opacity: 1;
+    }
+  
+    to {
+      opacity: 0.2;
+    }
+  }
+  
+  .track_play__author{
     grid-row: 1;
     grid-column: 2;
     grid-area: author;
@@ -139,7 +180,6 @@
   .track_play__like_svg:hover path,
   .track_play__dislike_svg:hover path {
     stroke:#acacac;
-   
   }
   
   .track_play__like_svg:active path,

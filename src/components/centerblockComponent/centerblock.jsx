@@ -1,13 +1,14 @@
-// import { PlayList } from '../PlayListBlock/PlayList';
+import { PlayList } from '../playlistComponent/playlist';
 import { Filter } from '../filterComponent/filter';
 import { Search } from '../searchComponent/search';
-import styles from './centerblock.module.css';
+import styles from './centerBlock.module.css';
 
-export function СenterBlock() {
+
+export function СenterBlock({ isLoading }) {
   return (
-    <div className={styles.main__centerblock}>
+       <div className={styles.main__centerblock}>
       <Search />
-      <h2 className={styles.centerblock__h2}>Треки</h2>
+          <h2 className={styles.centerblock__h2}>Треки</h2>
       <Filter />
       <div className={styles.centerblock__content}>
         <div className={styles.content__title}>
@@ -34,7 +35,7 @@ export function СenterBlock() {
             </svg>
           </div>
         </div>
-        
+        <PlayList isLoading={isLoading} />  
       </div>
     </div>
   );
