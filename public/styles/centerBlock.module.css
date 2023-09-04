@@ -3,7 +3,7 @@
     -webkit-box-flex: 3;
     -ms-flex-positive: 3;
     flex-grow: 3;
-    padding: 20px 40px 20px 111px;
+    padding: 20px 40px 20px 49px;
   }
   
   .centerblock__h2 {
@@ -16,6 +16,8 @@
   }
   
   .centerblock__content {
+   
+    /* width: 722px; */
     display: -webkit-box;
     display: flex;
     -webkit-box-orient: vertical;

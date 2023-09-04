@@ -1,12 +1,12 @@
 import { PlayerControls } from '../playerControlComponent/playerControl';
 import { PlayerTrackPlay } from '../playerTrackComponent/playerTrack';
-import styles from './barPlayer.module.css';
+import * as S from './styles';
 
-export function BarPlayer() {
+export function BarPlayer({ isLoading }) {
   return (
-    <div className={styles.bar__player}>
+    <S.BarPlayer>
       <PlayerControls />
-      <PlayerTrackPlay />
-    </div>
+      <PlayerTrackPlay isLoading={isLoading} />
+    </S.BarPlayer>
   );
 }

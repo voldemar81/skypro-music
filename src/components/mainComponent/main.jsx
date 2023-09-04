@@ -1,14 +1,14 @@
 import { Nav } from '../navComponent/nav';
 import { СenterBlock } from '../centerblockComponent/centerblock';
 import { MainSidebar } from '../mainSidebarComponent/mainSaidebar';
-import styles from './main.module.css';
+import * as S from './styles.js';
 
-export function Main() {
+export function Main({ isLoading }) {
   return (
-    <main className={styles.main}>
+    <S.Main>
       <Nav />
-      <СenterBlock />
-      <MainSidebar />
-    </main>
+      <СenterBlock isLoading={isLoading}/>
+      <MainSidebar isLoading={isLoading}/>
+    </S.Main>
   );
 }
