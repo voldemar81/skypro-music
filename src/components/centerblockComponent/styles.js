@@ -81,3 +81,13 @@ export const PlaylisTitleSvg = styled.svg`
     stroke: #696969;
   }
 `;
+
+export const ErrorMessage = styled.p`
+  font-size: 24px;
+  color: red;
+`;
+
+export const Img = styled.img`
+  margin-top: 30px;
+  max-width: 200px;
+`;

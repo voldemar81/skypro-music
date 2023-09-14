@@ -135,7 +135,12 @@ export const TrackAlbumLink = styled.a`
   color: #4e4e4e;
 `;
 
-export const TrackTimeComponent = styled.div``
+export const TrackTimeComponent = styled.div`
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: nowrap;
+`;
 
 export const TrackTimeSvg = styled.svg`
   width: 14px;

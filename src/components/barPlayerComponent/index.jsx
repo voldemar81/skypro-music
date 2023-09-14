@@ -1,5 +1,5 @@
-import { PlayerControls } from '../playerControlComponent/playerControl';
-import { PlayerTrackPlay } from '../playerTrackComponent/playerTrack';
+import { PlayerControls } from '../playerControlComponent';
+import { PlayerTrackPlay } from '../playerTrackComponent';
 import * as S from './styles';
 
 export function BarPlayer({ isLoading }) {

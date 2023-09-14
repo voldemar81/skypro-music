@@ -47,7 +47,7 @@ export function PlayerTrackPlay({ isLoading }) {
             </S.TrackPlayAuthorLink>
           </S.TrackPlayAuthor>
         ) : (
-          <S.SceletonAuthor></S.SceletonAuthor>
+          <S.SkeletonAuthor></S.SkeletonAuthor>
         )}
         {isLoading ? (
           <S.TrackPlayAlbum>
@@ -56,7 +56,7 @@ export function PlayerTrackPlay({ isLoading }) {
             </S.TrackPlayAlbumLink>
           </S.TrackPlayAlbum>
         ) : (
-          <S.SceletonAlbum></S.SceletonAlbum>
+          <S.SkeletonAlbum></S.SkeletonAlbum>
         )}
       </S.TrackPlayerContain>
       <S.TrackPlayLikesDisplay>

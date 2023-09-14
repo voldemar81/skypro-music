@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { NavLink } from 'react-router-dom';
 
 export const MainNav = styled.nav`
   width: 244px;
@@ -66,9 +67,31 @@ export const MenuItem = styled.li`
   margin-bottom: 16px;
 `;
 
-export const MenuLink = styled.a`
+export const MenuLink = styled(NavLink)`
   color: #fff;
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
+  display: inline-block;
+  position: relative;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background-color: #ad61ff;
+    transition:
+      width 0.3s ease,
+      left 0.3s ease;
+  }
+
+  &:hover::before,
+  &:active::before,
+  &.active::before {
+    left: 0;
+    width: 100%;
+  }
 `;
