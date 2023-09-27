@@ -70,22 +70,22 @@ export const SkeletonIcon = styled.div`
   animation: ${blink} 1s infinite alternate;
 `;
 
-const SceletonMixin = css`
+const SkeletonMixin = css`
   width: 59px;
   height: 15px;
   background-color: #313131;
   animation: ${blink} 1s infinite alternate;
 `;
 
-export const SceletonAuthor = styled.div`
-  ${SceletonMixin};
+export const SkeletonAuthor = styled.div`
+  ${SkeletonMixin};
   grid-row: 1;
   grid-column: 2;
   grid-area: author;
   min-width: 49px;
 `;
 
-export const SceletonAlbum = styled(SceletonAuthor)`
+export const SkeletonAlbum = styled(SkeletonAuthor)`
   grid-area: album;
 `;
 
@@ -101,7 +101,7 @@ export const TrackPlayAuthorLink = styled.a`
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
-  color: var(--main-text);
+  color: #fff;
   white-space: nowrap;
 `;
 
@@ -117,7 +117,7 @@ export const TrackPlayAlbumLink = styled.a`
   font-weight: 400;
   font-size: 13px;
   line-height: 24px;
-  color: var(--main-text);
+  color: #fff;
   white-space: nowrap;
 `;
 

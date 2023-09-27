@@ -1,39 +1,43 @@
 import { useState, useEffect } from 'react';
-import { Main } from './components/mainComponent/main';
-import { Player } from './components/playerComponent/player';
-import { Footer } from './components/footerComponent/footer';
+import { AppRoutes } from './routes';
 import { GeneralStyles } from './styles/GeneralStyles';
-import * as S from  './styles/AppStyles';
+import { getAllTracks } from './api';
 
 
 function App() {
-
-  const [isLoading, setIsLoading] = useState(false);
+  const initialUserState = localStorage.getItem('user') === 'true';
+  const [user, setUser] = useState(initialUserState);
+  const [music, setMusic] = useState([]);
+  const [getTracksError, setGetTracksError] = useState(null);
 
   useEffect(() => {
-    if (!isLoading) {
-      const timeout = setTimeout(() => {
-        setIsLoading(true);
-      }, 3000);
-
-      return () => clearTimeout(timeout); 
+    async function fetchTracks() {
+      try {
+        const tracks = await getAllTracks();
+        setMusic(tracks);
+      } catch (error) {
+        setGetTracksError('Что то пошло не так');
+      }
     }
-  }, [isLoading]);
+    fetchTracks();
+  }, []);
 
+  const handleLogin = () => {
+    localStorage.setItem('user', 'true');
+    setUser(true);
+  };
 
   return (
     <>
-      < GeneralStyles />
-      <S.Wrapper>
-        <S.Container>
-          <Main isLoading={isLoading} setIsLoading={setIsLoading} />
-          <Player isLoading={isLoading} setIsLoading={setIsLoading} />
-          <Footer />
-        </S.Container>
-      </S.Wrapper>
+      <GeneralStyles/>
+      <AppRoutes
+        user={user}
+        music={music}
+        onAuthButtonClick={handleLogin}
+        getTracksError={getTracksError}
+      />
     </>
   );
-
 }
 
 export default App;

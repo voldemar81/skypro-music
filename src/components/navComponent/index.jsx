@@ -1,9 +1,14 @@
 import { useState } from 'react';
-// import styles from './nav.module.css';
+import { NavLink } from 'react-router-dom';
 import * as S from './styles';
 
 export function Nav() {
   const [menuVisible, setMenuVisible] = useState(false);
+
+  const handleLogout = () => {
+    localStorage.setItem('user', 'false');
+  };
+
 
   const menuAppear = () => {
     setMenuVisible(!menuVisible);
@@ -11,14 +16,15 @@ export function Nav() {
   return (
     <S.MainNav>
       <S.NavLogo>
-        <S.LogoImage
-          id='btn-menu'
-          xmlns='http://www.w3.org/2000/svg'
-          width='114'
-          height='18'
-          viewBox='0 0 114 18'
-          fill='none'
-        >
+      <NavLink to='/'>
+          <S.LogoImage
+            id='btn-menu'
+            xmlns='http://www.w3.org/2000/svg'
+            width='114'
+            height='18'
+            viewBox='0 0 114 18'
+            fill='none'
+          >
           <path
             d='M3.19264 17.414C1.36821 18.4678 0.0576172 17.5896 0.0576172 16.0275C0.0576172 14.3647 0.0576172 9.37523 0.0576172 9.37523C0.0576172 9.37523 0.0576172 4.38579 0.0576172 2.72291C0.0576172 1.16086 1.3674 0.28267 3.19264 1.3365C6.03415 2.97742 14.5579 7.90181 14.5579 7.90181C15.6912 8.55639 15.6912 10.1932 14.5579 10.8478C14.5579 10.8486 6.03415 15.773 3.19264 17.414Z'
             fill='#00C1FF'
@@ -62,7 +68,8 @@ export function Nav() {
             d='M100.924 9.37761C100.924 6.19328 103.611 3.83398 107.179 3.83398C110.719 3.83398 113.391 6.19328 113.391 9.37761C113.391 12.5764 110.704 14.9357 107.179 14.9357C103.611 14.9357 100.924 12.5764 100.924 9.37761ZM110.936 9.37761C110.936 7.52491 109.303 6.17881 107.179 6.17881C105.012 6.17881 103.38 7.53938 103.38 9.37761C103.38 11.2448 105.012 12.6054 107.179 12.6054C109.318 12.6054 110.936 11.2448 110.936 9.37761Z'
             fill='black'
           />
-        </S.LogoImage>
+          </S.LogoImage>
+        </NavLink>           
       </S.NavLogo>
       <S.NavBurger onClick={menuAppear}>
         <S.BurgerLine></S.BurgerLine>
@@ -70,28 +77,29 @@ export function Nav() {
         <S.BurgerLine></S.BurgerLine>
       </S.NavBurger>
 
-      <S.MenuContent $menuVisible={menuVisible}
-      >
+      <S.MenuContent $menuVisible={menuVisible}>
         <S.MenuList>
           <S.MenuItem>
-            <S.MenuLink href='#'>
+            <S.MenuLink to='/' href='#'>
               Главное
             </S.MenuLink>
           </S.MenuItem>
           <S.MenuItem>
-            <S.MenuLink href='#'>
+            <S.MenuLink to='/favorites' href='#'>
               Мой плейлист
             </S.MenuLink>
           </S.MenuItem>
           <S.MenuItem>
-            <S.MenuLink href='../signin.html'>
-              Войти
+            <S.MenuLink
+              to='/login'
+              href='../signin.html'
+              onClick={handleLogout}
+            >
+              Выйти
             </S.MenuLink>
           </S.MenuItem>
         </S.MenuList>
       </S.MenuContent>
-      
-    </S.MainNav>
+      </S.MainNav>
   );
- 
-}
+};

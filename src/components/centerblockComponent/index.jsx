@@ -1,14 +1,14 @@
-import { PlayList } from '../playlistComponent/playlist';
-import { Filter } from '../filterComponent/filter';
-import { Search } from '../searchComponent/search';
+import { PlayList } from '../playlistComponent';
+import { Filter } from '../filterComponent';
+import { Search } from '../searchComponent';
 import * as S from './styles'
 
-export function СenterBlock ({ isLoading }) {
+export function СenterBlock ({ isLoading, music, getTracksError }) {
   return (
     <S.MainCenterBlock>
       <Search />
       <S.CenterBlockH2>Треки</S.CenterBlockH2>
-      <Filter />
+      <Filter music={music} getTracksError={getTracksError} />
       <S.CenterBlockContent>
         <S.ContentTitle>
           <S.Col01>
@@ -33,7 +33,11 @@ export function СenterBlock ({ isLoading }) {
             </S.PlaylisTitleSvg>
           </S.Col04>
         </S.ContentTitle>
-        <PlayList isLoading={isLoading} />
+        {getTracksError ? (
+          <><S.ErrorMessage>{getTracksError}</S.ErrorMessage><S.Img src='/img/404.gif' /></>
+        ) : (
+          isLoading && <PlayList isLoading={isLoading} music={music} />
+        )}
       </S.CenterBlockContent>
     </S.MainCenterBlock>
   );

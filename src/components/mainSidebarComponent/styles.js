@@ -88,7 +88,7 @@ const blink = keyframes`
     }
   }`;
 
-export const SleketonSidebarImg = styled.div`
+export const SkeletonSidebarImg = styled.div`
   background-color: #313131;
   animation: ${blink} 1s infinite alternate;
   width: 250px;

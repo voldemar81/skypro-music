@@ -41,5 +41,5 @@ body {
   height: 100%;
   font-family: StratosSkyeng, sans-serif;
   color:  #fff;
-  // transition: color 0.5s ease;
+  
 }`

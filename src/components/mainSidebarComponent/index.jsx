@@ -1,3 +1,6 @@
+// import { useState } from 'react';
+import { NavLink } from 'react-router-dom';
+import { musicCategory } from '../../constants';
 import * as S from './styles'
 
 export function MainSidebar({ isLoading }) {
@@ -29,42 +32,19 @@ export function MainSidebar({ isLoading }) {
 
       <S.SidebarBlock>
         <S.SidebarList>
-          <S.SidebarItem>
-            {isLoading ? (
-              <S.SidebarLink href='#'>
-                <S.SidebarImg
-                  src='img/playlist01.png'
-                  alt="day's playlist"
-                />
-              </S.SidebarLink>
-            ) : (
-              <S.SleketonSidebarImg></S.SleketonSidebarImg>
-            )}
-          </S.SidebarItem>
-          <S.SidebarItem>
-            {isLoading ? (
-              <S.SidebarLink href='#'>
-                <S.SidebarImg
-                  src='img/playlist02.png'
-                  alt="day's playlist"
-                />
-              </S.SidebarLink>
-            ) : (
-              <S.SleketonSidebarImg></S.SleketonSidebarImg>
-            )}
-          </S.SidebarItem>
-          <S.SidebarItem>
-          {isLoading ? (
-            <S.SidebarLink href='#'>
-              <S.SidebarImg
-                src='img/playlist03.png'
-                alt="day's playlist"
-              />
-            </S.SidebarLink>
-            ) : (
-              <S.SleketonSidebarImg></S.SleketonSidebarImg>
-            )}
-          </S.SidebarItem>
+        {musicCategory.map((category) => (
+            <S.SidebarItem key={category.id}>
+              {isLoading ? (
+                <NavLink
+                  to={`/category/${category.id}`}
+                >
+                  <S.SidebarImg src={category.imgUrl} alt={category.alt} />
+                </NavLink>
+              ) : (
+                <S.SkeletonSidebarImg />
+              )}
+            </S.SidebarItem>
+          ))}
         </S.SidebarList>
       </S.SidebarBlock>
     </S.MainSidebar>
