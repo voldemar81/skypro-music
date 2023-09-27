@@ -32,7 +32,7 @@ export const TrackTitle = styled.div`
   width: 447px;
 `;
 
-export const TrackTitleComponent = styled.div``
+export const TrackTitleComponent = styled.div``;
 
 export const TrackTitleImage = styled.svg`
   width: 51px;
@@ -94,7 +94,7 @@ export const TrackTitleLink = styled.a`
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
-  color: #fff;
+  color: color:  #fff;
   span {
     font-style: normal;
     font-weight: 400;
@@ -119,7 +119,7 @@ export const TrackAuthorLink = styled.a`
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
-  color: #fff;
+  color:  #fff;
   text-align: left;
 `;
 
@@ -132,7 +132,7 @@ export const TrackAlbumLink = styled.a`
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
-  color: #4e4e4e;
+  color:  #4e4e4e;
 `;
 
 export const TrackTimeComponent = styled.div`
@@ -142,23 +142,13 @@ export const TrackTimeComponent = styled.div`
   flex-wrap: nowrap;
 `;
 
-export const TrackTimeSvg = styled.svg`
-  width: 14px;
-  height: 12px;
-  margin-right: 17px;
-  fill: transparent;
-  path {
-    stroke: #4e4e4e;
-  }
-`;
-
 export const TrackTimeText = styled.span`
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
   text-align: right;
-  color: #4e4e4e;
+  color:  #4e4e4e;
 `;
 
 export const ContentPlayList = styled.div`

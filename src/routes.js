@@ -10,8 +10,13 @@ import { ProtectedRoute } from './components/ProtectedRoute';
 export const AppRoutes = ({
   user,
   onAuthButtonClick,
+  isLoading,
   music,
-  getTracksError,
+  isPlaying,
+  setIsPlaying,
+  currentTrack,
+  setCurrentTrack,
+  error,
 }) => {
   return (
     <Routes>
@@ -20,12 +25,17 @@ export const AppRoutes = ({
           path='/'
           element={
             <Main
+              isLoading={isLoading}
               music={music}
-              getTracksError={getTracksError}
+              isPlaying={isPlaying}
+              setIsPlaying={setIsPlaying}
+              currentTrack={currentTrack}
+              setCurrentTrack={setCurrentTrack}
+              error={error}
             />
           }
         />
-        <Route path='/favorites' element={<Favorites />} />
+        <Route path='/favorites' element={<Favorites/>} />
         <Route path='/category/:id' element={<Category />} />
       </Route>
       <Route
@@ -33,7 +43,7 @@ export const AppRoutes = ({
         element={<Login onAuthButtonClick={onAuthButtonClick} />}
       />
       <Route path='/register' element={<Register />} />
-      <Route path='*' element={<NotFound />} />
+      <Route path='*' element={<NotFound isLoading={isLoading}/>} />
     </Routes>
   );
 };

@@ -37,6 +37,9 @@ export const FilterButton = styled.div`
   padding: 6px 20px;
   width: 144px;
   cursor: pointer;
+  background-color: #181818;
+  transition: background-color 0.5s ease;
+  color: #fff;
   &:hover {
     border-color: #d9b6ff;
     color:  #d9b6ff;
@@ -164,3 +167,4 @@ export const FilterListMenuYear = styled.ul`
   height: 237px;
   align-items: center;
 `;
+
