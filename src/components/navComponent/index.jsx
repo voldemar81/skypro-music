@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom';
 import { LogoImg } from '../../data/svg/logoImg';
 import * as S from './styles';
 
+
 export const Nav = () => {
   const [menuVisible, setMenuVisible] = useState(false);
 
@@ -35,7 +36,7 @@ export const Nav = () => {
             </S.MenuLink>
           </S.MenuItem>
           <S.MenuItem>
-            <S.MenuLink to='/favourites' href='#'>
+            <S.MenuLink to='/favorites' href='#'>
               Мой плейлист
             </S.MenuLink>
           </S.MenuItem>

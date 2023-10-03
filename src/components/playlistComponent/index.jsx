@@ -5,10 +5,12 @@ import { TrackTitleSvg } from '../../data/svg/trackTitle';
 import { TrackTimeSvg } from '../../data/svg/trackTime';
 import * as S from './styles'
 
+
 export const PlayList = ({
   isLoading,
   music,
   setIsPlaying,
+  setIsBar,
   setCurrentTrack,
 }) => {
   if (!isLoading) {
@@ -18,6 +20,7 @@ export const PlayList = ({
   const handleTrackClick = (item) => {
     setCurrentTrack(item);
     setIsPlaying(true);
+    setIsBar(true);
   };
 
   const fullPlayList = music.map((item, i) => {
@@ -71,4 +74,3 @@ export const PlayList = ({
 
   return <S.ContentPlayList>{fullPlayList}</S.ContentPlayList>;
 };
-
