@@ -2,15 +2,25 @@ import { PlayerControls } from '../playerControlComponent';
 import { PlayerTrackPlay } from '../playerTrackComponent';
 import * as S from './styles';
 
-export function BarPlayer({ isLoading, currentTrack, setCurrentTrack  }) {
+
+export const BarPlayer = ({
+  isLoading,
+  currentTrack,
+  setCurrentTrack,
+  ...restParams
+}) => {
   return (
     <S.BarPlayer>
-    <PlayerControls />
-    <PlayerTrackPlay
-      isLoading={isLoading}
-      currentTrack={currentTrack}
-      setCurrentTrack={setCurrentTrack}
-    />
-  </S.BarPlayer>
+      <PlayerControls
+        currentTrack={currentTrack}
+        setCurrentTrack={setCurrentTrack}
+        {...restParams}
+      />
+      <PlayerTrackPlay
+        isLoading={isLoading}
+        currentTrack={currentTrack}
+        setCurrentTrack={setCurrentTrack}
+      />
+    </S.BarPlayer>
   );
-}
+};

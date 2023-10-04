@@ -1,18 +1,20 @@
-// import { useState, useEffect } from 'react';
+import { useState} from 'react';
 import { NavTrackSidebar } from '../../components/navTrackComponent';
 import { Player } from '../../components/playerComponent';
 import { Footer } from '../../components/footerComponent';
 import * as S from './styles';
 
+
 export const Main = ({
   isLoading,
   music,
   error,
-  isPlaying,
-  setIsPlaying,
   currentTrack,
   setCurrentTrack,
 }) => {
+
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [isBar, setIsBar] = useState(false);
 
   return (
     <S.Wrapper>
@@ -20,16 +22,16 @@ export const Main = ({
         <NavTrackSidebar
           isLoading={isLoading}
           music={music}
-          isPlaying={setIsPlaying}
           setIsPlaying={setIsPlaying}
+          setIsBar={setIsBar}
           error={error}
           currentTrack={currentTrack}
           setCurrentTrack={setCurrentTrack}
         />
-        {isPlaying && (
+        {isBar && (
           <Player
             isLoading={isLoading}
-            isPlaying={setIsPlaying}
+            isPlaying={isPlaying}
             setIsPlaying={setIsPlaying}
             currentTrack={currentTrack}
             setCurrentTrack={setCurrentTrack}

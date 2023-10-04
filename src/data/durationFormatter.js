@@ -1,11 +1,9 @@
-// export const standingRedact = (standing_seconds) => {
-//     const standingMinutes = Math.floor(standing_seconds / 60);
-//     const standingSeconds = String(standing_seconds % 60).padStart(2, '0');
-//   return  `${standingMinutes}:${standingSeconds}`;
-// };
-
 export const durationFormatter = (duration_in_seconds) => {
-  const durationMinutes = Math.floor(duration_in_seconds / 60);
-  const durationSeconds = String(duration_in_seconds % 60).padStart(2, '0');
-return  `${durationMinutes}:${durationSeconds}`;
+  const minutes = Math.floor(duration_in_seconds / 60);
+  const seconds = Math.floor(duration_in_seconds % 60);
+
+  const formattedMinutes = String(minutes).padStart(2, '0');
+  const formattedSeconds = String(seconds).padStart(2, '0');
+
+  return `${formattedMinutes}:${formattedSeconds}`;
 };

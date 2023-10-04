@@ -5,12 +5,12 @@ import { PlayListTitleSvg } from '../../data/svg/playerListTitle';
 import * as S from './styles'
 
 
-export const СenterBlock  = ({
+export const СenterBlock = ({
   isLoading,
   music,
   error,
-  isPlaying,
   setIsPlaying,
+  setIsBar,
   currentTrack,
   setCurrentTrack,
 }) => {
@@ -31,15 +31,15 @@ export const СenterBlock  = ({
         {error ? (
           <S.ErrorBlock>
             <S.ErrorMessage>
-              Что то пошло не так: {error}
+              Не удалось загрузить плейлист, попробуйте позже: {error}
             </S.ErrorMessage>
-             </S.ErrorBlock>
+          </S.ErrorBlock>
         ) : (
           <PlayList
             isLoading={isLoading}
             music={music}
-            isPlaying={isPlaying}
             setIsPlaying={setIsPlaying}
+            setIsBar={setIsBar}
             currentTrack={currentTrack}
             setCurrentTrack={setCurrentTrack}
           />
@@ -48,4 +48,3 @@ export const СenterBlock  = ({
     </S.MainCenterBlock>
   );
 };
-
