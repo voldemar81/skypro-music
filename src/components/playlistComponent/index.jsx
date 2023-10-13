@@ -1,4 +1,3 @@
-// import {tracks} from '../../data/trackList'; 
 import { durationFormatter} from '../../data/durationFormatter';
 import { tracks } from '../../constants';
 import { TrackTitleSvg } from '../../data/svg/trackTitle';
@@ -11,7 +10,9 @@ export const PlayList = ({
   music,
   setIsPlaying,
   setIsBar,
+  currentTrack,
   setCurrentTrack,
+  pause,
 }) => {
   if (!isLoading) {
     music = [...Array(12)].flatMap(() => tracks);
@@ -26,6 +27,7 @@ export const PlayList = ({
   const fullPlayList = music.map((item, i) => {
     const { name, author, album, duration_in_seconds } = item;
     const updatedAuthor = author === '-' ? 'Неизвестный' : author;
+    const isCurrentPlaying = currentTrack && item.id === currentTrack.id;
 
     return (
       <S.PlaylistItem key={i} onClick={() => handleTrackClick(item)}>
@@ -33,7 +35,10 @@ export const PlayList = ({
           <S.TrackTitle>
             <S.TrackTitleComponent>
               {isLoading ? (
-                <TrackTitleSvg />
+                <TrackTitleSvg
+                  isCurrentPlaying={isCurrentPlaying}
+                  pause={pause}
+                />
               ) : (
                 <S.SkeletonIcon></S.SkeletonIcon>
               )}

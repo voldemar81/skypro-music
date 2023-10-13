@@ -1,11 +1,15 @@
 import { useState, useEffect } from 'react';
+import { UserContext } from './contexts/UserContext';
 import { AppRoutes } from './routes';
+import { getAllTracks } from './api/apiGetTracks';
 import { GeneralStyles } from './styles/GeneralStyles';
-import { getAllTracks } from './api';
+// import { getAllTracks } from './api';
 
-function App() {
-  const initialUserState = localStorage.getItem('user') === 'true';
-  const [user, setUser] = useState(initialUserState);
+
+const App = () => {
+  const [user, setUser] = useState(
+    JSON.parse(localStorage.getItem('user')) || null,
+  );
   const [isLoading, setIsLoading] = useState(false);
   const [music, setMusic] = useState([]);
   const [error, setError] = useState(null);
@@ -34,20 +38,22 @@ function App() {
 
   return (
     <>
-      <GeneralStyles />
-      <AppRoutes
-        user={user}
-        isLoading={isLoading}
-        music={music}
-        isPlaying={isPlaying}
-        setIsPlaying={setIsPlaying}
-        currentTrack={currentTrack}
-        setCurrentTrack={setCurrentTrack}
-        onAuthButtonClick={handleLogin}
-        error={error}
-      />
+      < GeneralStyles />
+      <UserContext.Provider value={{ user, setUser }}>
+        <AppRoutes
+          user={user}
+          onAuthButtonClick={handleLogin}
+          isLoading={isLoading}
+          music={music}
+          isPlaying={isPlaying}
+          setIsPlaying={setIsPlaying}
+          currentTrack={currentTrack}
+          setCurrentTrack={setCurrentTrack}
+          error={error}
+        />
+      </UserContext.Provider>
     </>
   );
-}
+};
 
 export default App;
