@@ -7,6 +7,7 @@ import { Category } from './pages/category';
 import { NotFound } from './pages/not-found';
 import { ProtectedRoute } from './components/ProtectedRoute';
 
+
 export const AppRoutes = ({
   user,
   onAuthButtonClick,
@@ -18,6 +19,7 @@ export const AppRoutes = ({
   setCurrentTrack,
   error,
 }) => {
+  
   return (
     <Routes>
       <Route element={<ProtectedRoute isAllowed={user} />}>
@@ -35,14 +37,15 @@ export const AppRoutes = ({
             />
           }
         />
-        <Route path='/favorites' element={<Favorites/>} />
+        <Route path='/favorites' element={<Favorites />} />
         <Route path='/category/:id' element={<Category />} />
       </Route>
       <Route
-        path='/login'
-        element={<Login onAuthButtonClick={onAuthButtonClick} />}
+        path='/register'
+        element={<Register />}
       />
-      <Route path='/register' element={<Register />} />
+      <Route path='/login' element={<Login onAuthButtonClick={onAuthButtonClick}/>} 
+      />
       <Route path='*' element={<NotFound isLoading={isLoading}/>} />
     </Routes>
   );

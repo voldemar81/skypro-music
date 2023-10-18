@@ -33,7 +33,13 @@ export const TrackTitle = styled.div`
   width: 447px;
 `;
 
-export const TrackTitleComponent = styled.div``;
+export const TrackTitleComponent = styled.div`
+width: 51px;
+height: 51px;
+display: flex;
+align-items: center;
+background-color:  #313131;
+`;
 
 export const TrackTitleImage = styled.svg`
   width: 51px;
@@ -74,8 +80,9 @@ export const SkeletonIcon = styled(TrackTitleImage)`
 `;
 
 export const TrackTitleBlock = styled.div`
-  width: 356px;
-  height: 19px;
+margin-left: 17px;  
+width: 356px;
+height: 19px;
 `;
 
 export const SkeletonTrackTitle = styled(TrackTitleBlock)`

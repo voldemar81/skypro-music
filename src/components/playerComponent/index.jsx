@@ -6,11 +6,14 @@ import * as S from './styles';
 
 
 export const Player = ({
+  music,
   isLoading,
   currentTrack,
   setCurrentTrack,
   isPlaying,
   setIsPlaying,
+  pause,
+  setPause,
 }) => {
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
@@ -39,6 +42,7 @@ export const Player = ({
         />
         <S.BarPlayerBlock>
           <BarPlayer
+            music={music}
             isLoading={isLoading}
             currentTrack={currentTrack}
             setCurrentTrack={setCurrentTrack}
@@ -50,6 +54,8 @@ export const Player = ({
             setDuration={setDuration}
             audioRef={audioRef}
             volume={volume}
+            pause={pause}
+            setPause={setPause}
           />
           <VolumeBlock
             audioRef={audioRef}

@@ -1,14 +1,18 @@
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
+import { useContext} from 'react';
+import { UserContext } from '../../contexts/UserContext';
 import { LogoImg } from '../../data/svg/logoImg';
 import * as S from './styles';
 
 
 export const Nav = () => {
+  const { setUser } = useContext(UserContext);
   const [menuVisible, setMenuVisible] = useState(false);
 
   const handleLogout = () => {
-    localStorage.setItem('user', 'false');
+    setUser(null);
+    localStorage.removeItem('user');
   };
 
   const menuAppear = () => {
@@ -31,19 +35,18 @@ export const Nav = () => {
       <S.MenuContent $menuVisible={menuVisible}>
         <S.MenuList>
           <S.MenuItem>
-            <S.MenuLink to='/' href='#'>
+            <S.MenuLink to='/'>
               Главное
             </S.MenuLink>
           </S.MenuItem>
           <S.MenuItem>
-            <S.MenuLink to='/favorites' href='#'>
+            <S.MenuLink to='/favorites'>
               Мой плейлист
             </S.MenuLink>
           </S.MenuItem>
           <S.MenuItem>
             <S.MenuLink
               to='/login'
-              href='../signin.html'
               onClick={handleLogout}
             >
               Выйти
@@ -51,6 +54,6 @@ export const Nav = () => {
           </S.MenuItem>
         </S.MenuList>
       </S.MenuContent>
-      </S.MainNav>
+     </S.MainNav>
   );
 };

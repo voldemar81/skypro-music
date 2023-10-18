@@ -17,12 +17,12 @@ export const BarContent = styled.div`
   flex-direction: column;
 `;
 
-export const BarPlayerProgress = styled.div`
-  width: 100%;
-  height: 5px;
-  background-color:  #2e2e2e;
-  transition: background-color 0.5s ease;
-`;
+// export const BarPlayerProgress = styled.div`
+//   width: 100%;
+//   height: 5px;
+//   background-color:  #2e2e2e;
+//   transition: background-color 0.5s ease;
+// `;
 
 export const BarPlayerBlock = styled.div`
   height: 73px;

@@ -12,14 +12,15 @@ export const Main = ({
   currentTrack,
   setCurrentTrack,
 }) => {
-
   const [isPlaying, setIsPlaying] = useState(false);
   const [isBar, setIsBar] = useState(false);
-
+  const [pause, setPause] = useState(false);
+  
   return (
     <S.Wrapper>
       <S.Container>
         <NavTrackSidebar
+          pause={pause}
           isLoading={isLoading}
           music={music}
           setIsPlaying={setIsPlaying}
@@ -30,6 +31,8 @@ export const Main = ({
         />
         {isBar && (
           <Player
+            setPause={setPause}
+            music={music}
             isLoading={isLoading}
             isPlaying={isPlaying}
             setIsPlaying={setIsPlaying}
