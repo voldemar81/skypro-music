@@ -6,7 +6,10 @@ export const PlayerBtnShuffleImg = styled.svg`
   fill: transparent;
   stroke: #4e4e4e;
   path {
-    fill: #696969;
+    fill: ${(props) =>
+      props.$shuffleTrackEnable
+        ? '#fff'
+        : '#696969'};
   }
   &:hover path {
     fill: #acacac;

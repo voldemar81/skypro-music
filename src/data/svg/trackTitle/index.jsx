@@ -1,8 +1,12 @@
 import * as S from './styles';
 
-export const TrackTitleSvg = () => {
+export const TrackTitleSvg = ({ isCurrentPlaying, pause }) => {
   return (
-    <S.TrackTitleImg
+    <S.TrackTitleWrapper>
+      {isCurrentPlaying ? (
+        <S.PlayingDot $pause={pause}/>
+      ) : (
+        <S.TrackTitleImg
       xmlns='http://www.w3.org/2000/svg'
       width='51'
       height='52'
@@ -14,5 +18,7 @@ export const TrackTitleSvg = () => {
       <ellipse cx='19.5' cy='32.751' rx='3.5' ry='2' stroke='#B1B1B1' />
       <ellipse cx='30.5' cy='29.751' rx='3.5' ry='2' stroke='#B1B1B1' />
     </S.TrackTitleImg>
+      )}
+    </S.TrackTitleWrapper>
   );
 };

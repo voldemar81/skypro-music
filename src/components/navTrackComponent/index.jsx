@@ -6,28 +6,18 @@ import * as S from './styles';
 
 export const NavTrackSidebar = ({
   isLoading,
-  music,
-  error,
-  setIsPlaying,
-  setIsBar,
-  currentTrack,
-  setCurrentTrack,
-  pause,
+  ...props
 }) => {
   return (
     <S.NavTrackSidebar>
       <Nav />
       <СenterBlock
-        pause={pause}
-        isLoading={isLoading}
-        music={music}
-        setIsPlaying={setIsPlaying}
-        setIsBar={setIsBar}
-        currentTrack={currentTrack}
-        setCurrentTrack={setCurrentTrack}
-        error={error}
+      isLoading={isLoading}
+        {...props}
       />
       <MainSidebar isLoading={isLoading} />
     </S.NavTrackSidebar>
   );
 };
+
+
